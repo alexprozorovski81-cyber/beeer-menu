@@ -10,12 +10,12 @@ body {
     color: #ecf0f1;
     padding: 8px;
     min-height: 100vh;
-    overflow: hidden;
+    overflow: auto; /* Изменено с hidden на auto */
 }
 
 .container {
     max-width: 100%;
-    height: 98vh;
+    min-height: 98vh; /* Изменено с height на min-height */
     margin: 0 auto;
     background-color: rgba(44, 62, 80, 0.95);
     border-radius: 15px;
@@ -40,21 +40,19 @@ h1 {
     font-weight: bold;
 }
 
-/* Убрали subtitle */
-
 .menu-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
     flex: 1;
-    overflow: hidden;
+    overflow: auto; /* Изменено с hidden на auto */
 }
 
 .countries-column {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    overflow: hidden;
+    overflow: visible; /* Изменено с hidden на visible */
 }
 
 .country-section {
@@ -175,12 +173,6 @@ h1 {
     margin-left: 6px;
 }
 
-/* Стиль для пива "В пути" */
-.beer-in-transit {
-    color: #e74c3c !important;
-    font-style: italic;
-}
-
 .beer-info {
     display: flex;
     flex-wrap: wrap;
@@ -196,69 +188,90 @@ h1 {
     white-space: nowrap;
 }
 
-/* Компактный режим */
+/* Улучшенный компактный режим */
 .compact-mode .beer-item {
-    min-height: 40px;
-    padding: 5px;
-}
-
-.compact-mode .logo {
-    width: 35px;
-    height: 35px;
-}
-
-.compact-mode .beer-name,
-.compact-mode .beer-price {
-    font-size: 1rem;
-}
-
-.compact-mode .beer-info {
-    font-size: 0.8rem;
-}
-
-.compact-mode .country-name {
-    font-size: 1.3rem;
-}
-
-.compact-mode .country-section {
-    padding: 8px;
-}
-
-.compact-mode h1 {
-    font-size: 2rem;
-}
-
-/* Супер-компактный режим для очень маленьких экранов */
-.super-compact .beer-item {
-    min-height: 35px;
+    min-height: 38px;
     padding: 4px;
 }
 
-.super-compact .logo {
+.compact-mode .logo {
     width: 32px;
     height: 32px;
 }
 
-.super-compact .beer-name,
-.super-compact .beer-price {
+.compact-mode .beer-name,
+.compact-mode .beer-price {
     font-size: 0.95rem;
 }
 
-.super-compact .beer-info {
+.compact-mode .beer-info {
     font-size: 0.75rem;
 }
 
-.super-compact .country-name {
+.compact-mode .country-name {
     font-size: 1.2rem;
 }
 
-.super-compact .country-section {
+.compact-mode .country-section {
     padding: 6px;
 }
 
-.super-compact h1 {
+.compact-mode h1 {
     font-size: 1.8rem;
-    margin-bottom: 3px;
+}
+
+/* Супер-компактный режим для очень маленьких экранов */
+.super-compact .beer-item {
+    min-height: 32px;
+    padding: 3px;
+}
+
+.super-compact .logo {
+    width: 28px;
+    height: 28px;
+}
+
+.super-compact .beer-name,
+.super-compact .beer-price {
+    font-size: 0.85rem;
+}
+
+.super-compact .beer-info {
+    font-size: 0.7rem;
+    gap: 2px;
+}
+
+.super-compact .beer-info span {
+    padding: 1px 4px;
+}
+
+.super-compact .country-name {
+    font-size: 1.1rem;
+}
+
+.super-compact .country-section {
+    padding: 4px;
+    gap: 6px;
+}
+
+.super-compact .countries-column {
+    gap: 6px;
+}
+
+.super-compact h1 {
+    font-size: 1.6rem;
+    margin-bottom: 2px;
+}
+
+.super-compact .flag,
+.super-compact .drinks-icon {
+    width: 30px;
+    height: 18px;
+    margin-right: 6px;
+}
+
+.super-compact .drinks-icon {
+    font-size: 1.1rem;
 }
 
 /* Адаптивность */
@@ -268,13 +281,59 @@ h1 {
     }
 }
 
-@media (max-height: 700px) {
+@media (max-height: 800px) {
     .container {
-        height: 99vh;
+        min-height: 99vh;
         padding: 8px;
     }
     
     body {
         padding: 5px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .country-name {
+        font-size: 1.2rem;
+    }
+    
+    .beer-item {
+        min-height: 40px;
+    }
+}
+
+@media (max-height: 600px) {
+    .container {
+        padding: 6px;
+    }
+    
+    h1 {
+        font-size: 1.6rem;
+        margin-bottom: 4px;
+    }
+    
+    .country-name {
+        font-size: 1.1rem;
+    }
+    
+    .beer-item {
+        min-height: 35px;
+        padding: 4px;
+    }
+    
+    .logo {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .beer-name,
+    .beer-price {
+        font-size: 0.95rem;
+    }
+    
+    .beer-info {
+        font-size: 0.75rem;
     }
 }
