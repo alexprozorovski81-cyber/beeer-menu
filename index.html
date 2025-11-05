@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Пивное меню</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Дополнительные стили для ТВ */
+        body {
+            -webkit-text-size-adjust: none;
+            text-size-adjust: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Пивное Меню</h1>
+            <p class="subtitle">Широкий выбор крафтового пива по странам</p>
+        </header>
+
+        <div class="menu-content">
+            <!-- Левая колонка -->
+            <div class="countries-column">
+                <!-- Германия -->
+                <div class="country-section">
+                    <div class="country-header">
+                        <img src="logos/germany.png" alt="Флаг" class="flag">
+                        <div class="country-name">Германия</div>
+                    </div>
+                    <div class="beer-list">
+                        <div class="beer-item">
+                            <img src="logos/Gilde.png" alt="Gilde Pils" class="logo">
+                            <div class="beer-details">
+                                <div class="beer-header">
+                                    <div class="beer-name">1. Gilde pils</div>
+                                    <div class="beer-price">315р</div>
+                                </div>
+                                <div class="beer-info">
+                                    <span>Немецкий пилз</span>
+                                    <span>ЭНС: 12</span>
+                                    <span>Алк.: 4.9%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="beer-item">
+                            <img src="logos/Gilde.png" alt="Gilde Pils" class="logo">
+                            <div class="beer-details">
+                                <div class="beer-header">
+                                    <div class="beer-name">2. Gilde wheat</div>
+                                    <div class="beer-price">315р</div>
+                                </div>
+                                <div class="beer-info">
+                                    <span>Пшеничный эль</span>
+                                    <span>ЭНС: 12</span>
+                                    <span>Алк.: 5.1%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="beer-item">
+                            <img src="logos/Pilger.jpg" alt="Pilgerstoff" class="logo">
+                            <div class="beer-details">
+                                <div class="beer-header">
+                                    <div class="beer-name">3. Pilgerstoff weizen</div>
+                                    <div class="beer-price">320р</div>
+                                </div>
+                                <div class="beer-info">
+                                    <span>Пшеничный эль</span>
+                                    <span>ЭНС: 12</span>
+                                    <span>Алк.: 5.7%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="beer-item">
+                            <img src="logos/Pilger.jpg" alt="Pilgerstoff" class="logo">
+                            <div class="beer-details">
+                                <div class="beer-header">
+                                    <div class="beer-name">4. Pilgerstoff hell</div>
+                                    <div class="beer-price">320р</div>
+                                </div>
+                                <div class="beer-info">
+                                    <span>Немецкий хеллес</span>
+                                    <span>ЭНС: 12</span>
+                                    <span>Алк.: 5%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="beer-item">
+                            <img src="logos/mai.jpg" alt="Maisels" class="logo">
+                            <div class="beer-details">
+                                <div class="beer-header">
+                                    <div class="beer-name">5. Maisels Weiss's</div>
+                                    <div class="beer-price beer-in-transit">В пути</div>
+                                    <div class="beer-price">380р</div>
+                                </div>
+                                <div class="beer-info">
+                                    <span>Пшеничный эль</span>
+                                    <span>ЭНС: 12</span>
+                                    <span>Алк.: 5,2%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Чехия -->
+                <div class="country-section">
+                    <div class="country-header">
+                        <img src="logos/chezh.svg" alt="Флаг" class="flag">
+                        <div class="country-name">Чехия</div>
+                    </div>
+                    <div class="beer-list">
+                        <div class="beer-item">
+                            <img src="logos/primator.png" alt="primator" class="logo">
+                            <div class="beer-details">
+                                <div class="beer-header">
+                                    <div class="beer-name">6. Primator weizen</div>
+                                    <div class="beer-price">330р</div>
+                                </div>
+                                <div class="beer-info">
+                                    <span>Пшеничный эль</span>
+                                    <span>ЭНС: 13</span>
+                                    <span>Алк.: 4,8%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="beer-item">
+                            <img src="logos/primator.png" alt="primator" class="logo">
+                            <div class="beer-details">
+                                <div class="beer-header">
+                                    <div class="beer-name">7. Primator premium</div>
+                                    <div class="beer-price beer-in-transit">В пути</div>
+                                    <div class="beer-price">330р</div>
+                                </div>
+                                <div class="beer-info">
+                                    <span>Светлый лагер</span>
+                                    <span>ЭНС: 12</span>
+                                    <span>Алк.: 5%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="beer-item">
+                            <img src="logos/primator.png" alt="primator" class="logo">
+                            <div class="beer-details">
+                                <div class="beer-header">
+                                    <div class="beer-name">8. Primator Dark</div>
+                                    <div class="beer-price beer-in-transit">В пути</div>
+                                    <div class="beer-price">335р</div>
+                                </div>
+                                <div class="beer-info">
+                                    <span>Темный лагер</span>
+                                    <span>ЭНС: 11</span>
+                                    <span>Алк.: 4,5%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="beer-item">
+                            <img src="logos/praz.jpg" alt="Prazechka" class="logo">
+                            <div class="beer-details">
+                                <div class="beer-header">
+                                    <div class="beer-name">9. Prazechka</div>
+                                    <div class="beer-price beer-in-transit">В пути</div>
+                                    <div class="beer-price">340р</div>
+                                </div>
+                                <div class="beer-info">
+                                    <span>Светлый лагер</span>
+                                    <span>ЭНС: 11</span>
+                                    <span>Алк.: 4%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Бельгия (часть 1) -->
+                <div class="country-section">
+                    <div class="country-header">
+                        <img src="logos/belgium.png" alt="Флаг" class="flag">
+                        <div class="country-name">Бельгия</div>
+                    </div>
+                    <div class="beer-list">
+                        <div class="beer-item">
+                            <img src="logos/sint.jpg" alt="Sint Gummarus" class="logo">
+                            <div class="beer-details">
+                                <div class="beer-header">
+                                    <div class="beer-name">10. Sint Gummarus</div>
+                                    <div class="beer-price">555р</div>
+                                </div>
+                                <div class="beer-info">
+                                    <span>Дюббель</span>
+                                    <span>ЭНС: 17</span>
+                                    <span>Алк.: 7,1%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="beer-item">
+                            <img src="logos/barbe.png" alt="Barbie Kriek" class="logo">
+                            <div class="beer-details">
+                                <div class="beer-header">
+                                    <div class="beer-name">11. Barbie Kriek</div>
+                                    <div class="beer-price">630р</div>
+                                </div>
+                                <div class="beer-info">
+                                    <span>Вишневый эль</span>
+                                    <span>ЭНС: 20</span>
+                                    <span>Алк.: 7%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="beer-item">
+                            <img src="logos/petrus.png" alt="Petrus Bordo" class="logo">
+                            <div class="beer-details">
+                                <div class="beer-header">
+                                    <div class="beer-name">12. Petrus Bordo</div>
+                                    <div class="beer-price">500р</div>
+                                </div>
+                                <div class="beer-info">
+                                    <span>Фламандский красный эль</span>
+                                    <span>ЭНС: 12</span>
+                                    <span>Алк.: 5,5%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="beer-item">
+                            <img src="logos/delirium.jpg" alt="Delirium Red" class="logo">
+                            <div class="beer-details">
+                                <div class="beer-header">
+                                    <div class="beer-name">13. Delirium Red</div>
+                                    <div class="beer-price">560р</div>
+                                </div>
+                                <div class="beer-info">
+                                    <span>Вишневый эль</span>
+                                    <span>ЭНС: 18</span>
+                                    <span>Алк.: 8,5%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="beer-item">
+                            <img src="logos/blanche.jpg" alt="Blanche Bruxelles" class="logo">
+                            <div class="beer-details">
+                                <div class="beer-header">
+                                    <div class="beer-name">14. Blanche Bruxelles</div>
+                                    <div class="beer-price beer-in-transit">В пути</div>
+                                    <div class="beer-price">250р</div>
+                                </div>
+                                <div class="beer-info">
+                                    <span>Бланш</span>
+                                    <span>ЭНС: 11</span>
+                                    <span>Алк.: 4,5%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Правая колонка -->
+            <div class="countries-column">
+                <!-- Бельгия (часть 2) -->
+                <div class="country-section">
+                    <div class="country-header">
+                        <img src="logos/belgium.png" alt="Флаг" class="flag">
+                        <div class="country-name">Бельгия</div>
+                    </div>
+                    <div class="beer-list">
+                        <div class="beer-item">
+                            <img src="logos/le fort.jpg" alt="Triple Le Fort" class="logo">
+                            <div class="beer-details">
+                                <div class="beer-header">
+                                    <div class="beer-name">15. Triple Le Fort</div>
+                                    <div class="beer-price">545р</div>
+                                </div>
+                                <div class="beer-info">
+                                    <span>Трипель</span>
+                                    <span>ЭНС: 14</span>
+                                    <span>Алк.: 8,8%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Сербия -->
+                <div class="country-section">
+                    <div class="country-header">
+                        <img src="logos/serbia.png" alt="Флаг" class="flag">
+                        <div class="country-name">Сербия</div>
+                    </div>
+                    <div class="beer-list">
+                        <div class="beer-item">
+                            <img src="logos/karlova.png" alt="Grand selection" class="logo">
+                            <div class="beer-details">
+                                <div class="beer-header">
+                                    <div class="beer-name">16. Grand selection</div>
+                                    <div class="beer-price beer-in-transit">В пути</div>
+                                    <div class="beer-price">200р</div>
+                                </div>
+                                <div class="beer-info">
+                                    <span>Светлый лагер</span>
+                                    <span>ЭНС: 12</span>
+                                    <span>Алк.: 5,2%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Англия -->
+                <div class="country-section">
+                    <div class="country-header">
+                        <img src="logos/england.png" alt="Флаг" class="flag">
+                        <div class="country-name">Англия</div>
+                    </div>
+                    <div class="beer-list">
+                        <div class="beer-item">
+                            <img src="logos/brewdog.png" alt="Brewdog punk IPA" class="logo">
+                            <div class="beer-details">
+                                <div class="beer-header">
+                                    <div class="beer-name">17. Brewdog punk IPA</div>
+                                    <div class="beer-price">490р</div>
+                                </div>
+                                <div class="beer-info">
+                                    <span>ИПА</span>
+                                    <span>ЭНС: 12</span>
+                                    <span>Алк.: 5,2%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Россия -->
+                <div class="country-section">
+                    <div class="country-header">
+                        <img src="logos/russia.webp" alt="Флаг" class="flag">
+                        <div class="country-name">Россия</div>
+                    </div>
+                    <div class="beer-list">
+                        <div class="beer-item">
+                            <img src="logos/ponart.jpg" alt="Понарт хель" class="logo">
+                            <div class="beer-details">
+                                <div class="beer-header">
+                                    <div class="beer-name">18. Понарт хель</div>
+                                    <div class="beer-price beer-in-transit">В пути</div>
+                                    <div class="beer-price">165р</div>
+                                </div>
+                                <div class="beer-info">
+                                    <span>Светлый лагер</span>
+                                    <span>ЭНС: 11</span>
+                                    <span>Алк.: 4,5%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="beer-item">
+                            <img src="logos/ponart.jpg" alt="Понарт красный" class="logo">
+                            <div class="beer-details">
+                                <div class="beer-header">
+                                    <div class="beer-name">19. Понарт красный</div>
+                                    <div class="beer-price">165р</div>
+                                </div>
+                                <div class="beer-info">
+                                    <span>Красный лагер</span>
+                                    <span>ЭНС: 12</span>
+                                    <span>Алк.: 4,5%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="beer-item">
+                            <img src="logos/ponart.jpg" alt="Понарт пшеничный" class="logo">
+                            <div class="beer-details">
+                                <div class="beer-header">
+                                    <div class="beer-name">20. Понарт пшеничный</div>
+                                    <div class="beer-price">165р</div>
+                                </div>
+                                <div class="beer-info">
+                                    <span>Пшеничный эль</span>
+                                    <span>ЭНС: 12</span>
+                                    <span>Алк.: 4,5%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="beer-item">
+                            <img src="logos/konix.png" alt="Konix stout" class="logo">
+                            <div class="beer-details">
+                                <div class="beer-header">
+                                    <div class="beer-name">21. Konix stout</div>
+                                    <div class="beer-price">220р</div>
+                                </div>
+                                <div class="beer-info">
+                                    <span>Молочный стаут</span>
+                                    <span>ЭНС: 16</span>
+                                    <span>Алк.: 5%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="beer-item">
+                            <img src="logos/konix.png" alt="Konix Hell/Pils" class="logo">
+                            <div class="beer-details">
+                                <div class="beer-header">
+                                    <div class="beer-name">22. Konix Hell/Pils</div>
+                                    <div class="beer-price">165р</div>
+                                </div>
+                                <div class="beer-info">
+                                    <span>Светлый лагер</span>
+                                    <span>ЭНС: 12</span>
+                                    <span>Алк.: 4,7%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="beer-item">
+                            <img src="logos/plan b.jpg" alt="Plan B" class="logo">
+                            <div class="beer-details">
+                                <div class="beer-header">
+                                    <div class="beer-name">23. Plan B Отличный план</div>
+                                    <div class="beer-price">285р</div>
+                                </div>
+                                <div class="beer-info">
+                                    <span>ИПА</span>
+                                    <span>ЭНС: 17</span>
+                                    <span>Алк.: 7,3%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="beer-item">
+                            <img src="logos/reine.jpg" alt="Reine" class="logo">
+                            <div class="beer-details">
+                                <div class="beer-header">
+                                    <div class="beer-name">24. Reine</div>
+                                    <div class="beer-price">295р</div>
+                                </div>
+                                <div class="beer-info">
+                                    <span>Сидр сухой</span>
+                                    <span>Алк.: 6%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Безалкогольные напитки -->
+                <div class="country-section non-alcoholic-section">
+                    <div class="country-header">
+                        <div class="drinks-icon">🥤</div>
+                        <div class="country-name">Безалкогольные напитки</div>
+                    </div>
+                    <div class="beer-list">
+                        <div class="beer-item">
+                            <img src="logos/лимонад.jpg" alt="Лимонад" class="logo">
+                            <div class="beer-details">
+                                <div class="beer-header">
+                                    <div class="beer-name">25. Лимонад</div>
+                                    <div class="beer-price">75р</div>
+                                </div>
+                                <div class="beer-info">
+                                    <span>дюшес</span>
+                                    <span>алк. 0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="beer-item">
+                            <img src="logos/квас.jpg" alt="Квас" class="logo">
+                            <div class="beer-details">
+                                <div class="beer-header">
+                                    <div class="beer-name">26. Квас</div>
+                                    <div class="beer-price">75р</div>
+                                </div>
+                                <div class="beer-info">
+                                    <span>темный</span>
+                                    <span>алк. 0%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Автообновление каждые 5 минут
+        setInterval(function() {
+            window.location.reload();
+        }, 300000); // 5 минут
+        
+        // Предотвращение масштабирования на ТВ
+        document.addEventListener('gesturestart', function(e) {
+            e.preventDefault();
+        });
+        
+        document.addEventListener('touchmove', function(e) {
+            if(e.scale !== 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+    </script>
+</body>
+</html>
