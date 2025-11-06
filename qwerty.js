@@ -1,6 +1,6 @@
-// Функция адаптации меню под размер экрана
+// Функция адаптации меню для телевизора
 function adjustMenuForTV() {
-    console.log('Starting menu adjustment...');
+    console.log('Starting TV menu adjustment...');
     
     const container = document.querySelector('.container');
     if (!container) {
@@ -9,124 +9,91 @@ function adjustMenuForTV() {
     }
     
     const screenHeight = window.innerHeight;
-    const containerHeight = container.scrollHeight;
+    const viewportHeight = document.documentElement.clientHeight;
     
-    console.log('Screen height:', screenHeight, 'Container height:', containerHeight);
+    console.log('Screen height:', screenHeight, 'Viewport height:', viewportHeight);
     
     // Удаляем все предыдущие классы компактности
-    container.classList.remove('compact-mode', 'super-compact', 'ultra-compact', 'emergency-mode');
+    container.classList.remove('tv-compact-mode', 'tv-ultra-compact', 'compact-mode', 'super-compact', 'ultra-compact', 'emergency-mode');
     
-    // Проверяем, вмещается ли контент
-    if (containerHeight > screenHeight) {
-        const overflowRatio = containerHeight / screenHeight;
-        console.log('Overflow ratio:', overflowRatio);
+    // Принудительно применяем компактный режим для ТВ
+    setTimeout(() => {
+        const containerRect = container.getBoundingClientRect();
+        const containerVisibleHeight = containerRect.height;
         
-        // Определяем необходимый уровень компактности
-        if (overflowRatio > 1.3) {
-            container.classList.add('emergency-mode');
-            console.log('Applied EMERGENCY mode');
-        } else if (overflowRatio > 1.2) {
-            container.classList.add('ultra-compact');
-            console.log('Applied ULTRA compact mode');
-        } else if (overflowRatio > 1.1) {
-            container.classList.add('super-compact');
-            console.log('Applied SUPER compact mode');
-        } else {
-            container.classList.add('compact-mode');
-            console.log('Applied compact mode');
-        }
+        console.log('Container visible height:', containerVisibleHeight);
         
-        // Проверяем результат после применения стилей
-        setTimeout(() => {
-            const newContainerHeight = container.scrollHeight;
-            const newScreenHeight = window.innerHeight;
-            console.log('After adjustment - Container:', newContainerHeight, 'Screen:', newScreenHeight);
+        // Проверяем, выходит ли контент за пределы экрана
+        if (containerVisibleHeight > screenHeight * 0.95 || container.scrollHeight > screenHeight) {
+            console.log('Content overflow detected, applying TV compact mode');
+            container.classList.add('tv-compact-mode');
             
-            // Если все еще не вмещается, применяем более агрессивный режим
-            if (newContainerHeight > newScreenHeight) {
-                console.log('Still not fitting, applying more aggressive mode');
-                
-                if (container.classList.contains('compact-mode')) {
-                    container.classList.remove('compact-mode');
-                    container.classList.add('super-compact');
-                } else if (container.classList.contains('super-compact')) {
-                    container.classList.remove('super-compact');
-                    container.classList.add('ultra-compact');
-                } else if (container.classList.contains('ultra-compact')) {
-                    container.classList.remove('ultra-compact');
-                    container.classList.add('emergency-mode');
+            // Дополнительная проверка после применения стилей
+            setTimeout(() => {
+                const newContainerRect = container.getBoundingClientRect();
+                if (newContainerRect.height > screenHeight * 0.95) {
+                    console.log('Still overflow, applying TV ultra compact mode');
+                    container.classList.remove('tv-compact-mode');
+                    container.classList.add('tv-ultra-compact');
                 }
-            }
-        }, 100);
-    } else {
-        console.log('Menu fits perfectly! No compact mode needed.');
-    }
+            }, 100);
+        } else {
+            console.log('Content fits perfectly');
+        }
+    }, 100);
 }
 
-// Функция для принудительного вмещения контента
-function forceContentFit() {
+// Упрощенная функция принудительного вмещения
+function forceTVFit() {
     const container = document.querySelector('.container');
     const screenHeight = window.innerHeight;
     
-    let attempts = 0;
-    const maxAttempts = 5;
+    console.log('Force TV fit, screen height:', screenHeight);
     
-    const checkAndAdjust = () => {
-        attempts++;
-        const containerHeight = container.scrollHeight;
-        
-        console.log(`Force fit attempt ${attempts}:`, containerHeight, screenHeight);
-        
-        if (containerHeight > screenHeight && attempts < maxAttempts) {
-            // Постепенно применяем более агрессивные режимы
-            if (!container.classList.contains('compact-mode')) {
-                container.classList.add('compact-mode');
-            } else if (!container.classList.contains('super-compact')) {
-                container.classList.add('super-compact');
-            } else if (!container.classList.contains('ultra-compact')) {
-                container.classList.add('ultra-compact');
-            } else if (!container.classList.contains('emergency-mode')) {
-                container.classList.add('emergency-mode');
-            }
-            
-            setTimeout(checkAndAdjust, 100);
-        } else if (attempts >= maxAttempts) {
-            console.log('Max adjustment attempts reached');
-        }
-    };
+    // Немедленно применяем компактный режим
+    container.classList.remove('tv-compact-mode', 'tv-ultra-compact');
+    container.classList.add('tv-ultra-compact');
     
-    checkAndAdjust();
+    console.log('Applied TV ultra compact mode');
 }
 
-// Инициализация при загрузке страницы
+// Инициализация для телевизора
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded, initializing menu...');
+    console.log('TV DOM loaded, initializing...');
     
-    // Первоначальная настройка
-    setTimeout(adjustMenuForTV, 100);
-    
-    // Дополнительные проверки после полной загрузки ресурсов
+    // Более агрессивная настройка для ТВ
+    setTimeout(forceTVFit, 100);
     setTimeout(adjustMenuForTV, 500);
-    setTimeout(forceContentFit, 1000);
     
     // Финальная проверка
-    setTimeout(adjustMenuForTV, 2000);
+    setTimeout(() => {
+        const container = document.querySelector('.container');
+        const screenHeight = window.innerHeight;
+        const containerRect = container.getBoundingClientRect();
+        
+        console.log('Final check - Container:', containerRect.height, 'Screen:', screenHeight);
+        
+        if (containerRect.height > screenHeight) {
+            console.log('Final adjustment needed');
+            forceTVFit();
+        }
+    }, 1000);
 });
 
 // Адаптация при изменении размера окна
 window.addEventListener('resize', function() {
-    console.log('Window resized, adjusting menu...');
-    setTimeout(adjustMenuForTV, 100);
-    setTimeout(forceContentFit, 300);
+    console.log('TV window resized');
+    setTimeout(adjustMenuForTV, 50);
+    setTimeout(forceTVFit, 150);
 });
 
-// Автоматическое обновление каждые 5 минут
+// Автоматическое обновление каждые 10 минут
 setInterval(function() {
-    console.log('Auto-refreshing page...');
+    console.log('TV auto-refresh');
     window.location.reload();
-}, 300000);
+}, 600000);
 
-// Предотвращаем масштабирование на ТВ
+// Отключаем масштабирование
 document.addEventListener('gesturestart', function(e) {
     e.preventDefault();
 });
@@ -137,6 +104,12 @@ document.addEventListener('touchmove', function(e) {
     }
 }, { passive: false });
 
-// Экспорт функций для глобального доступа (если нужно)
-window.adjustMenuForTV = adjustMenuForTV;
-window.forceContentFit = forceContentFit;
+// Устанавливаем правильный viewport для ТВ
+function setTVViewport() {
+    const viewport = document.querySelector('meta[name="viewport"]');
+    if (viewport) {
+        viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+    }
+}
+
+setTVViewport();

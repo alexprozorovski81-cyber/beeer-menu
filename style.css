@@ -355,3 +355,108 @@ h1 {
         padding: 6px;
     }
 }
+/* Фикс для телевизора */
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+.container {
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+/* Упрощенные компактные режимы для ТВ */
+.tv-compact-mode {
+    padding: 8px !important;
+}
+
+.tv-compact-mode h1 {
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+}
+
+.tv-compact-mode .country-name {
+    font-size: 1.1rem;
+}
+
+.tv-compact-mode .beer-item {
+    min-height: 40px;
+    padding: 6px;
+}
+
+.tv-compact-mode .logo {
+    width: 32px;
+    height: 32px;
+}
+
+.tv-compact-mode .beer-name,
+.tv-compact-mode .beer-price {
+    font-size: 0.9rem;
+}
+
+.tv-compact-mode .beer-info {
+    font-size: 0.75rem;
+}
+
+.tv-compact-mode .flag,
+.tv-compact-mode .drinks-icon {
+    width: 28px;
+    height: 18px;
+}
+
+.tv-ultra-compact {
+    padding: 5px !important;
+}
+
+.tv-ultra-compact h1 {
+    font-size: 1.3rem;
+    margin-bottom: 3px;
+}
+
+.tv-ultra-compact .country-name {
+    font-size: 1rem;
+}
+
+.tv-ultra-compact .beer-item {
+    min-height: 35px;
+    padding: 4px;
+}
+
+.tv-ultra-compact .logo {
+    width: 28px;
+    height: 28px;
+}
+
+.tv-ultra-compact .beer-name,
+.tv-ultra-compact .beer-price {
+    font-size: 0.85rem;
+}
+
+.tv-ultra-compact .beer-info {
+    font-size: 0.7rem;
+    gap: 3px;
+}
+
+.tv-ultra-compact .beer-info span {
+    padding: 1px 4px;
+}
+
+.tv-ultra-compact .flag,
+.tv-ultra-compact .drinks-icon {
+    width: 25px;
+    height: 16px;
+}
+
+/* Убираем лишние отступы */
+.tv-ultra-compact .countries-column {
+    gap: 8px;
+}
+
+.tv-ultra-compact .country-section {
+    padding: 8px;
+}
+
+.tv-ultra-compact .menu-content {
+    gap: 10px;
+}
