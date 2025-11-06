@@ -7,81 +7,80 @@ function adjustLayout() {
         console.log('Screen height:', screenHeight);
         
         // Удаляем все классы компактности
-        container.classList.remove('compact-mode', 'super-compact', 'ultra-compact');
+        container.classList.remove('compact-mode', 'super-compact');
         
-        // Очень агрессивные настройки для гарантированного вмещения
-        if (screenHeight < 650) {
-            container.classList.add('ultra-compact');
-            console.log('ULTRA compact mode activated');
-        } else if (screenHeight < 800) {
+        // Адаптивные настройки для телевизора
+        if (screenHeight < 900) {
             container.classList.add('super-compact');
-            console.log('Super compact mode activated');
-        } else if (screenHeight < 1000) {
+            console.log('Super compact mode for smaller TV');
+        } else if (screenHeight < 1100) {
             container.classList.add('compact-mode');
-            console.log('Compact mode activated');
+            console.log('Compact mode for medium TV');
         } else {
-            console.log('Normal mode');
+            console.log('Full size for large TV');
         }
         
-        // Принудительная проверка и дополнительное уменьшение если нужно
-        forceFitContent();
+        // Проверяем вмещение и регулируем если нужно
+        optimizeForTV();
         
     } catch (error) {
         console.error('Error in adjustLayout:', error);
     }
 }
 
-// Принудительное вмещение контента
-function forceFitContent() {
+// Оптимизация для телевизора
+function optimizeForTV() {
     const container = document.querySelector('.container');
     const containerHeight = container.scrollHeight;
     const screenHeight = window.innerHeight;
-    const viewportHeight = document.documentElement.clientHeight;
     
-    console.log('Container height:', containerHeight, 'Screen height:', screenHeight, 'Viewport:', viewportHeight);
+    console.log('TV optimization - Container:', containerHeight, 'Screen:', screenHeight);
     
-    // Если контент не помещается, применяем более агрессивный режим
-    if (containerHeight > screenHeight - 10) {
-        console.warn('Content does not fit! Applying more compact mode...');
+    // Если контент не помещается, применяем постепенное уменьшение
+    if (containerHeight > screenHeight) {
+        console.log('Content too large, applying TV optimization...');
         
-        if (container.classList.contains('compact-mode')) {
-            container.classList.remove('compact-mode');
+        const overflowRatio = containerHeight / screenHeight;
+        console.log('Overflow ratio:', overflowRatio);
+        
+        // Постепенное уменьшение в зависимости от степени переполнения
+        if (overflowRatio > 1.2) {
             container.classList.add('super-compact');
-            console.log('Upgraded to super-compact');
-        } else if (container.classList.contains('super-compact')) {
-            container.classList.remove('super-compact');
-            container.classList.add('ultra-compact');
-            console.log('Upgraded to ultra-compact');
-        } else if (container.classList.contains('ultra-compact')) {
-            // Если ультра-компактный тоже не помогает, делаем экстренное уменьшение
-            emergencyShrink();
-            console.log('Emergency shrink applied');
+            console.log('Applied super-compact for TV');
+        } else if (overflowRatio > 1.05) {
+            container.classList.add('compact-mode');
+            console.log('Applied compact-mode for TV');
         }
+        
+        // Финальная проверка и микро-настройка
+        finalAdjustment();
     }
 }
 
-// Экстренное уменьшение размеров
-function emergencyShrink() {
-    const beerItems = document.querySelectorAll('.beer-item');
-    const beerInfos = document.querySelectorAll('.beer-info');
-    const countryNames = document.querySelectorAll('.country-name');
+// Финальная тонкая настройка
+function finalAdjustment() {
+    const container = document.querySelector('.container');
+    const containerHeight = container.scrollHeight;
+    const screenHeight = window.innerHeight;
     
-    beerItems.forEach(item => {
-        item.style.minHeight = '20px';
-        item.style.padding = '1px';
-    });
-    
-    beerInfos.forEach(info => {
-        info.style.fontSize = '0.4rem';
-    });
-    
-    countryNames.forEach(name => {
-        name.style.fontSize = '0.65rem';
-    });
-    
-    document.querySelector('h1').style.fontSize = '0.9rem';
-    
-    console.log('Emergency shrink completed');
+    // Если после всех настроек все еще не вмещается, делаем микро-регулировку
+    if (containerHeight > screenHeight - 10) {
+        console.log('Making micro-adjustments...');
+        
+        // Небольшое уменьшение отступов
+        const beerItems = document.querySelectorAll('.beer-item');
+        beerItems.forEach(item => {
+            const currentHeight = parseInt(getComputedStyle(item).minHeight);
+            item.style.minHeight = (currentHeight - 2) + 'px';
+        });
+        
+        // Небольшое уменьшение шрифтов информации
+        const beerInfos = document.querySelectorAll('.beer-info');
+        beerInfos.forEach(info => {
+            const currentSize = parseFloat(getComputedStyle(info).fontSize);
+            info.style.fontSize = (currentSize * 0.95) + 'rem';
+        });
+    }
 }
 
 // Ждем полной загрузки DOM
@@ -89,8 +88,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Первоначальная настройка
     setTimeout(adjustLayout, 100);
     
-    // Дополнительная проверка
-    setTimeout(adjustLayout, 300);
+    // Дополнительная проверка после полной загрузки шрифтов и изображений
+    setTimeout(adjustLayout, 500);
     setTimeout(adjustLayout, 1000);
     
     // Автоматическое обновление каждые 5 минут
@@ -102,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Обновляем при изменении размера окна
 window.addEventListener('resize', adjustLayout);
 
-// Предотвращаем масштабирование
+// Предотвращаем масштабирование на ТВ
 document.addEventListener('gesturestart', function(e) {
     e.preventDefault();
 });
